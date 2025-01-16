@@ -1,20 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Space_Grotesk as SpaceGrotesk } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const inter = Inter({
+  subsets: ["latin"], // You can customize subsets (e.g., 'latin', 'latin-ext')
+  variable: "--font-inter", // Use a custom CSS variable
+  display: "swap", // Ensure a smooth font loading experience
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = SpaceGrotesk({
   subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "AskFlow",
-  description: "A better version of stackoverflow",
+  description: `Askflow is a modern Question & Answer platform with AI-powered responses for quick
+     answers and encourages community interaction by allowing all users to
+     respond to questions. It features  It's designed to enhance user experience and engagement with
+     a sleek design options in both light and dark modes.
+    `,
+  icons: {
+    icon: "/images/site-logo.svg",
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.className} ${spaceGrotesk.variable} antialiased`}
       >
         {children}
       </body>

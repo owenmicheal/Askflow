@@ -18,13 +18,23 @@ const config = [
     "next/typescript",
     "standard",
     "plugin:tailwindcss/recommended",
-    "prettier"
+    "prettier",
   ),
   {
     plugins: {
       import: require("eslint-plugin-import"),
+      prettier: require("eslint-plugin-prettier"),
     },
     rules: {
+      "no-undef": "off",
+      "prettier/prettier": "error",
+      "max-len": [
+        "error",
+        {
+          code: 80,
+          tabWidth: 2,
+        },
+      ],
       "import/order": [
         "error",
         {
@@ -53,14 +63,7 @@ const config = [
       ],
     },
     ignores: ["components/ui/**"],
-    overrides: [
-      {
-        files: ["*.ts", "*.tsx"],
-        rules: {
-          "no-undef": "off",
-        },
-      },
-    ],
+    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
   },
 ];
 
